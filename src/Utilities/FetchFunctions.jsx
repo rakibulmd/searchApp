@@ -1,6 +1,7 @@
 import axios from "axios";
 
-
+// function to fetch data when the search engine is stack overflow
+// it receives the search text as parameter and return the data on success or empty array if failed. 
 async function getStackOverflowData (searchText) {
     try {
       const response = await axios.get(`https://api.stackexchange.com/search/advanced?site=stackoverflow.com&q=${searchText}`);
@@ -14,21 +15,9 @@ async function getStackOverflowData (searchText) {
       console.error(error);
     }
   }
-// async function getWikiData(searchText) {
-//     try {
-//       const response = await axios.get(`https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&utf8=1&srsearch=${searchText}`);
-//       if(response?.data?.search.length != 0) {
-//         console.log(response?.data?.search);
-//         return response?.data?.search
-//       }
-//       else {
-//         return 0;
-//       }
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   }
 
+// function to fetch data when the search engine is wikipedia
+// it receives the search text as parameter and return the data on success or empty array if failed.
 async function getWikiData(searchText) {
     try {
       const callbackName = 'wikiCallback' + Date.now();

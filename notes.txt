@@ -11,3 +11,8 @@ Steps:
 After pressing the submit button, we will call the fetch function to fetch data either from stack overflow or wikipedia. 
 We have two different function to fetch data. 
 We have two different component to show the data. 
+
+
+// 
+we used tailwind css to style the app. 
+axios to fetch data. 

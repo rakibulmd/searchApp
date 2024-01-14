@@ -9,13 +9,19 @@ const Home = () => {
     { id: 2, name: "Wikipedia" },
   ];
 
-
+  // state to store input data
   const [searchText, setSearchText] = useState("");
+  // state to control the submit button
   const [searchButtonDisable, setSearchButtonDisable] = useState(true);
+  // state to store the current search engine
   const [searchEngine, setSearchEngine] = useState(1);
+  // state to store the search result after fetching
   const [searchResult, setSearchResult] = useState(null);
+  // state to control the data loading status
   const [isLoading, setIsLoading] = useState(false);
   
+
+  // function to control user input
   const handleChange = (e) => {
     setSearchText(e?.target?.value);
     if (e.target.value == "") {
@@ -25,10 +31,14 @@ const Home = () => {
     }
   };
 
+
+  // submit function to call fetch function
   const handleSearchButton = async () => {
     if(searchEngine === 1) {
+      // loading is true
       setIsLoading(true);
      const data =  await FetchFunctions.getStackOverflowData(searchText);
+     // loading is false
      setIsLoading(false);
      if(data) {
       // console.log(data);
@@ -40,7 +50,6 @@ const Home = () => {
       const data =  await FetchFunctions.getWikiData(searchText);
       setIsLoading(false);
       if(data) {
-        // console.log(data?.query?.search);
        setSearchResult(data?.query?.search);
       }
      }
@@ -96,6 +105,7 @@ const Home = () => {
         </div>
       </div>
      
+      {/* search engine and search result matched to show the data */}
       {searchResult && searchEngine == 1 && <SearchResultsStack data={searchResult}></SearchResultsStack>}
       {searchResult && searchEngine == 2 && <SearchResultsWiki data={searchResult}></SearchResultsWiki>}
     </div>
