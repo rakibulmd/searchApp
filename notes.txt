@@ -1,0 +1,13 @@
+Steps:
+
+
+1. Create a React project. (Create react app with vite).
+2. Create a home page.
+3. Create a input field to take the search input. We need to use a react state to store the input field data.
+4. Add two button to select the search engine. One for wikipedia, one for stack overflow. We need another state to store which search engine is active.
+5. Add a submit button. 
+
+//
+After pressing the submit button, we will call the fetch function to fetch data either from stack overflow or wikipedia. 
+We have two different function to fetch data. 
+We have two different component to show the data. 
